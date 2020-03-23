@@ -1,0 +1,63 @@
+.Filter {
+  position: absolute;
+  top: 0;
+  right: 0%;
+  width: 60vw;
+  /* border: 2px solid white; */
+  z-index: 100;
+  background-color: rgb(61, 56, 56);
+  border-bottom: none;
+}
+.Search {
+  width: 100%;
+}
+.Filter input {
+  width: 80%;
+  border: none;
+  height: 44px;
+  outline: none;
+  color: rgb(61, 56, 56);
+  font-size: 20px;
+}
+.Filter input::placeholder {
+  opacity: 0.3;
+}
+.Filter button {
+  width: 20%;
+  height: 46px;
+  border: none;
+  background: rgb(61, 56, 56);
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.Filter ul {
+  list-style: none;
+  width: 100%;
+  z-index: 10000;
+  position: absolute;
+  background: rgb(61, 56, 56);
+  padding: 0;
+  top: 3vh;
+  text-align: left;
+  cursor: pointer;
+}
+.Filter ul li {
+  /* border-top: 1px solid rgb(71, 67, 67); */
+  display: block;
+  text-align: left;
+  color: white;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid white;
+}
+.Filter ul li:last-child {
+  border: none;
+}
+@media screen and (min-width: 490px) {
+  .Filter {
+    width: 100%;
+    left: 0;
+    top: 6%;
+    margin: 2rem 0 5rem 0;
+  }
+}

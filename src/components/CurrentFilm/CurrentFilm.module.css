@@ -1,0 +1,98 @@
+.Film {
+  z-index: -100;
+  width: 100%;
+  height: auto;
+  margin: 8rem auto auto auto;
+  border-radius: 15%;
+  color: white;
+  font-size: 3vw;
+}
+.Film h2 {
+  font-size: 1.5rem;
+}
+
+.Film img {
+  width: 75%;
+  height: 20rem;
+  left: 10vw;
+}
+
+.firstPart {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  display: block;
+}
+.FilmWithOptions {
+  width: 80%;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+}
+.secondPart {
+  width: 80%;
+  margin: 5vw auto;
+}
+.secondPart a {
+  color: rgb(190, 178, 178);
+}
+.Text {
+  max-height: 20rem;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.Text h1 {
+  margin: 0 auto;
+  padding: 10px 0 5px 0;
+}
+.Text p {
+  height: auto;
+  text-align: left;
+  margin: 5px 15px 0 15px;
+}
+.Rating {
+  padding: 10px 0 10px 0px;
+}
+
+@media screen and (min-width: 750px) {
+  .Film img {
+    width: 20rem;
+    height: 30rem;
+  }
+  .Film {
+    font-size: 1rem;
+  }
+  .firstPart {
+    display: flex;
+  }
+  .FilmWithOptions {
+    width: 27rem;
+  }
+  .Text {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .Film {
+    margin: 5vw auto auto auto;
+    font-size: 1rem;
+    margin-top: 10rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .Film img {
+    width: 75%;
+    height: 35vh;
+  }
+  .firstPart {
+    display: block;
+  }
+  .Text {
+    width: 100%;
+  }
+  .Film {
+    font-size: 3.5vw;
+    margin-top: 4rem;
+  }
+}

@@ -1,0 +1,25 @@
+.Window {
+  display: inline-block;
+  width: 25%;
+  position: absolute;
+  top: 5vh;
+}
+.Window img {
+  width: 70%;
+  height: 25vw;
+  margin: auto;
+  cursor: pointer;
+}
+.Img {
+  height: 100%;
+}
+.Window p {
+  height: 50px;
+  cursor: pointer;
+  margin: 0;
+}
+/* @media screen and (max-width: 490px) {
+  .Window {
+    width: 50%;
+  }
+} */

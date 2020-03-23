@@ -1,0 +1,21 @@
+.PaginationWrapper {
+  width: 50%;
+  margin: 0 auto;
+  color: white;
+  padding: 0 0 4vh 0;
+}
+.Pagination a {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+.active {
+  border: 1px solid white;
+}
+.Pagination button {
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+  border: unset;
+  cursor: pointer;
+}

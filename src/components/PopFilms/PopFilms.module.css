@@ -1,0 +1,54 @@
+.PopFilms {
+  color: white;
+  position: relative;
+  width: 80%;
+  margin: 4rem auto;
+  box-sizing: border-box;
+}
+.PopFilms img {
+  min-width: 100px;
+  height: 150px;
+}
+.PopFilms ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.PopFilms ul li {
+  border: 1px solid white;
+  display: flex;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  padding: 3.5vw;
+  margin-top: 5vw;
+  width: 99.6%;
+  justify-content: flex-start;
+  font-size: 0.8rem;
+}
+.PopFilms ul li p {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 950px) {
+  .PopFilms ul li {
+    width: 40.88%;
+  }
+}
+@media screen and (min-width: 370px) {
+  .PopFilms img {
+    min-width: 150px;
+    height: 200px;
+  }
+  .PopFilms ul li {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 490px) {
+  .PopFilms {
+    margin-top: 5rem;
+  }
+}

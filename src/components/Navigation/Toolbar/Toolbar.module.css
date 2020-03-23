@@ -1,0 +1,18 @@
+.ToolBar {
+  width: auto;
+
+  display: none;
+}
+
+.ToolBar a {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+@media screen and (min-width: 490px) {
+  .ToolBar {
+    display: block;
+  }
+}
