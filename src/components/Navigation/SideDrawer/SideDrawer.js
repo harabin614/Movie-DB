@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { createMuiTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -10,29 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import classes from "./SideDrawer.module.css";
 import { Button, ThemeProvider } from "@material-ui/core";
 import { NavLink, useHistory } from "react-router-dom";
-
-const theme = createMuiTheme({
-  overrides: {
-    MuiList: { root: { display: "block", marginTop: "10vh" } },
-    MuiListItem: {
-      root: {}
-    },
-    MuiButton: {
-      root: {
-        border: "1px solid white",
-        height: "3rem"
-      },
-      text: {
-        color: "white"
-      }
-    },
-    MuiPaper: {
-      root: {
-        width: "40vw"
-      }
-    }
-  }
-});
+import { themeDrawer } from "../../../shared/Themes/SideDrawerTheme";
 
 const SideDrawer = () => {
   const [openSideDrawer, setSD] = useState(false);
@@ -79,7 +56,7 @@ const SideDrawer = () => {
 
   return (
     <div className={classes.SideDrawer}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeDrawer}>
         <Button onClick={() => toggleDrawer(true)}>
           <MenuIcon
             style={{

@@ -9,6 +9,7 @@ import classes from "./FilmOptions.module.css";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AddRating from "./AddRating/AddRating";
 import * as actions from "../../../store/actions/index";
+import axios from "../../../axios-firebase";
 
 const theme = createMuiTheme({
   overrides: {
@@ -38,7 +39,18 @@ const FilmOptions = () => {
   const film = useSelector(state => state.film.film);
 
   const onFavorite = () => {
-    onAddFavorites(film.title, film.id);
+    axios.get("/favorites.json").then(res => {
+      let pridaj = true;
+      for (let key in res.data) {
+        if (res.data[key].filmId === film.id) {
+          pridaj = false;
+        }
+      }
+      console.log(pridaj);
+      if (pridaj) {
+        onAddFavorites(film.title, film.id);
+      }
+    });
   };
   const onWatchlist = () => {
     onAddToWatchlist(film.title, film.id);

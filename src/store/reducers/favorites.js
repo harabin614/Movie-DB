@@ -10,11 +10,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.INIT_FAV_FILMS_SUCCESS:
-      return updateObject(state, { favFilms: action.favFilms });
+      return updateObject(state, { favFilms: action.films });
     case actionTypes.INIT_FAV_FILMS_FAILED:
       return updateObject(state, { error: action.error });
     case actionTypes.INIT_WATCHLIST_SUCCESS:
-      return updateObject(state, { watchList: action.watchList });
+      return updateObject(state, { watchList: action.watchlist });
     case actionTypes.INIT_WATCHLIST_FAILED:
       return updateObject(state, { error: action.error });
     default:

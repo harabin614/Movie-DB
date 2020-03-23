@@ -19,7 +19,15 @@ export const initFavFilms = () => {
     axios
       .get("/favorites.json")
       .then(res => {
-        dispatch(initFavFilmsSuccess(res.data));
+        const fetchedData = [];
+        for (let key in res.data) {
+          fetchedData.push({
+            ...res.data[key],
+            id: key
+          });
+        }
+        console.log(fetchedData);
+        dispatch(initFavFilmsSuccess(fetchedData));
       })
       .catch(error => {
         dispatch(initFavFilmsFailed(error));
@@ -32,12 +40,14 @@ const addFavFilmSuccess = () => {
   };
 };
 export const addFavFilm = (filmName, filmId) => {
-  return dispatch => {
-    axios
-      .post("/favorites.json", { filmName, filmId })
-      .then(res => dispatch(addFavFilmSuccess))
-      .catch(err => console.log(err.message));
-  };
+  {
+    return dispatch => {
+      axios
+        .post("/favorites.json", { filmName, filmId })
+        .then(res => dispatch(addFavFilmSuccess))
+        .catch(err => console.log(err.message));
+    };
+  }
 };
 
 const initWatchlistSuccess = watchlist => {
@@ -58,7 +68,15 @@ export const initWatchlist = () => {
     axios
       .get("/watchlist.json")
       .then(res => {
-        dispatch(initWatchlistSuccess(res.data));
+        const fetchedData = [];
+        for (let key in res.data) {
+          fetchedData.push({
+            ...res.data[key],
+            id: key
+          });
+        }
+        console.log(fetchedData);
+        dispatch(initWatchlistSuccess(fetchedData));
       })
       .catch(err => {
         dispatch(initWatchlistFailed(err));

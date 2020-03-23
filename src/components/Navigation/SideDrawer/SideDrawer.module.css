@@ -11,6 +11,9 @@
   font-size: larger;
   font-weight: bold;
 }
+.SideDrawer button:focus {
+  outline: none;
+}
 
 @media screen and (min-width: 490px) {
   .SideDrawer {

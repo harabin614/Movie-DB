@@ -9,7 +9,6 @@ import * as actions from "./store/actions/index";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(actions.initFilm());
     dispatch(actions.initGenres());
   }, [dispatch]);
   console.log("app render");
