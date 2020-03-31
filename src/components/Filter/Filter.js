@@ -7,13 +7,14 @@ import { FaSearch } from "react-icons/fa";
 // import axios from "axios";
 
 const Filter = props => {
-  console.log("filter did render");
   const [keyword, setKeyword] = useState("");
   const [filteredFilms, setFilteredFilms] = useState([]);
-  const [openSearcher, setOpenSearcher] = useState(true);
-
+  const [openSearcher, setOpenSearcher] = useState(props.close);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    setOpenSearcher(props.close);
+  }, [props.close]);
+  console.log(openSearcher);
   const onAddFilm = film => dispatch(actions.addFilm(film));
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Filter = props => {
 
   const addFilmOnClick = idFilm => {
     const film = filteredFilms.filter(film => film.id === idFilm);
-    onAddFilm(film[0]);
+    onAddFilm(film[0].id);
     setOpenSearcher(false);
     setKeyword("");
   };

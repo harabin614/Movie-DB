@@ -1,8 +1,18 @@
-export { addFilm, initGenres, initFilm } from "./films";
+export {
+  addFilm,
+  initGenres,
+  initFilm,
+  addRating,
+  getFilm,
+  initPop
+} from "./films";
 
 export {
-  initFavFilms,
-  addFavFilm,
-  initWatchlist,
-  addToWatchlist
+  addFilmToFav,
+  addFilmToWatchlist,
+  addFilmRating,
+  getFilmOptionsData,
+  changeFilmRating,
+  removeFromFav,
+  removeFromWatchlist
 } from "./favorites";

@@ -13,11 +13,16 @@ const reducer = (state = initialState, action) => {
       return updateObject(state, { film: action.film });
     case actionTypes.INIT_FILM_SUCCES:
       return updateObject(state, {
-        film: action.film,
+        film: action.film
+      });
+    case actionTypes.INIT_POPFILMS_SUCCESS:
+      return updateObject(state, {
         popFilms: action.popFilms
       });
     case actionTypes.SET_GENRES:
       return updateObject(state, { genres: action.genres });
+    case actionTypes.GET_FILM_SUCCESS:
+      return updateObject(state, { film: action.film });
     default:
       return state;
   }

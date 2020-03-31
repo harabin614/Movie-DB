@@ -1,46 +1,29 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import StarRatingComponent from "react-star-rating-component";
+import classes from "./AddRating.module.css";
 
 const AddRating = props => {
-  const [rating, setRating] = useState(null);
-  const onChangeHandler = selectedValue => {
-    setRating(selectedValue);
+  const [rating, setRating] = useState(0);
+  const onStarClick = nextValue => {
+    setRating(nextValue);
   };
 
-  let options = [];
-  for (let i = 1; i <= 10; i++) {
-    options.push(<option key={i}>{i}</option>);
-  }
   return (
-    <React.Fragment>
-      <Form
-        className="w-auto d-flex flex-row"
-        style={{
-          position: "absolute",
-          top: "18px",
-          left: "-115px",
-          zIndex: "1000"
-        }}
-      >
-        <Form.Group controlId="exampleFrom.SelectCustom">
-          <Form.Control
-            as="select"
-            onChange={event => onChangeHandler(event.target.value)}
-          >
-            {options}
-          </Form.Control>
-        </Form.Group>
-        <Button
-          variant="success"
-          className="h-75"
-          onClick={() => props.close(rating)}
-        >
+    <div className={classes.Stars}>
+      <Card onMouseLeave={() => props.close(null, false)}>
+        <StarRatingComponent
+          name="rate film"
+          starCount={10}
+          value={rating}
+          onStarClick={onStarClick.bind(this)}
+        />
+        <Button variant="warning" onClick={() => props.close(rating, false)}>
           Send
         </Button>
-      </Form>
-    </React.Fragment>
+      </Card>
+    </div>
   );
 };
-
-export default AddRating;
+export default React.memo(AddRating);

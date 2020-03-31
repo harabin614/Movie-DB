@@ -1,12 +1,12 @@
 .SideDrawer {
   text-align: left;
   margin: 0vw;
-  height: 5vh;
-  width: 10%;
+  height: 100%;
+  width: 40%;
 }
 .A a {
   text-decoration: none;
-  color: black;
+  color: gray;
   margin: 0 auto;
   font-size: larger;
   font-weight: bold;
@@ -15,7 +15,7 @@
   outline: none;
 }
 
-@media screen and (min-width: 490px) {
+@media screen and (min-width: 900px) {
   .SideDrawer {
     display: none;
   }

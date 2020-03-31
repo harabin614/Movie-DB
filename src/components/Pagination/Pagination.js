@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 const Pagination = props => {
   const [pageNumber, setPageNumber] = useState(1);
   const actualPath = useHistory();
-  console.log(actualPath);
   useEffect(() => {
     if (actualPath.location.pathname !== "/popular") {
       setPageNumber(Number(actualPath.location.pathname.slice(-1)));

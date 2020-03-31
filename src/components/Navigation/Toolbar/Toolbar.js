@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import classes from "./Toolbar.module.css";
 import { NavLink } from "react-router-dom";
@@ -12,29 +13,44 @@ const theme = createMuiTheme({
       root: {
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "white"
+        backgroundColor: "black"
       }
     },
     MuiListItem: {
       root: {
         width: "auto",
-        color: "black"
-      },
-      selected: {}
+        color: "black",
+        "&$selected": {
+          backgroundColor: "gray",
+          "&:hover": {
+            backgroundColor: "gray"
+          }
+        },
+        "&:hover": {
+          backgroundColor: "red"
+        }
+      }
     }
   }
 });
 
 const ToolBar = () => {
   const [selected, setSelected] = useState();
+
+  const film = useSelector(state => state.film.film);
+
   const actualPath = useHistory();
   useEffect(() => {
     if (actualPath.location.pathname.includes("popular")) {
       setSelected(1);
+    } else if (actualPath.location.pathname.includes("favorites")) {
+      setSelected(2);
+    } else if (actualPath.location.pathname.includes("watchlist")) {
+      setSelected(3);
     } else {
       setSelected(0);
     }
-  }, [actualPath]);
+  }, [film, actualPath.location.pathname]);
   const pickPa = index => {
     setSelected(index);
   };

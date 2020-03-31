@@ -1,6 +1,22 @@
 .Recomm {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
-  height: 35vh;
+  height: 75vw;
   position: relative;
+  overflow: scroll;
+}
+@media screen and (min-width: 500px) {
+  .Recomm {
+    height: 70vw;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Recomm {
+    height: 45vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .Recomm {
+    height: 35vw;
+  }
 }

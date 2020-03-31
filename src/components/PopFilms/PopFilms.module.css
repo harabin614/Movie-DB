@@ -1,7 +1,7 @@
 .PopFilms {
   color: white;
-  position: relative;
-  width: 80%;
+  /* position: relative; */
+  width: 100%;
   margin: 4rem auto;
   box-sizing: border-box;
 }
@@ -15,6 +15,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 0;
 }
 .PopFilms ul li {
   border: 1px solid white;
@@ -23,11 +24,12 @@
   text-align: center;
   align-items: center;
   padding: 3.5vw;
-  margin-top: 5vw;
-  width: 99.6%;
+  margin-bottom: 5vw;
+  width: 100%;
   justify-content: flex-start;
   font-size: 0.8rem;
 }
+
 .PopFilms ul li p {
   margin: 0;
   padding: 0;
@@ -35,7 +37,12 @@
 
 @media screen and (min-width: 950px) {
   .PopFilms ul li {
-    width: 40.88%;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 490px) {
+  .PopFilms {
+    margin-top: 12rem;
   }
 }
 @media screen and (min-width: 370px) {
@@ -45,10 +52,5 @@
   }
   .PopFilms ul li {
     font-size: 1rem;
-  }
-}
-@media screen and (min-width: 490px) {
-  .PopFilms {
-    margin-top: 5rem;
   }
 }

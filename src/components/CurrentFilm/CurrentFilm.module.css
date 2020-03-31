@@ -2,16 +2,17 @@
   z-index: -100;
   width: 100%;
   height: auto;
-  margin: 8rem auto auto auto;
+  padding: 10rem 0;
   border-radius: 15%;
   color: white;
   font-size: 3vw;
+  /* position: relative; */
 }
 .Film h2 {
   font-size: 1.5rem;
 }
 
-.Film img {
+.FilmWithOptions img {
   width: 75%;
   height: 20rem;
   left: 10vw;
@@ -56,8 +57,8 @@
 }
 
 @media screen and (min-width: 750px) {
-  .Film img {
-    width: 20rem;
+  .FilmWithOptions img {
+    min-width: 20rem;
     height: 30rem;
   }
   .Film {
@@ -77,7 +78,7 @@
   .Film {
     margin: 5vw auto auto auto;
     font-size: 1rem;
-    margin-top: 10rem;
+    margin-top: 12rem;
   }
 }
 @media screen and (max-width: 490px) {
@@ -93,6 +94,6 @@
   }
   .Film {
     font-size: 3.5vw;
-    margin-top: 4rem;
+    padding: 4rem 0;
   }
 }

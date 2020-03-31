@@ -2,7 +2,13 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 export const themeDrawer = createMuiTheme({
   overrides: {
-    MuiList: { root: { display: "block", marginTop: "10vh" } },
+    MuiList: {
+      root: {
+        display: "block",
+        marginTop: "10vh",
+        backgroundColor: "white"
+      }
+    },
     MuiListItem: {
       root: {}
     },

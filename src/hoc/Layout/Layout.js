@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
+import Filter from "../../components/Filter/Filter";
 
-const layout = props => {
+const Layout = props => {
+  const [closeUl, setCloseUl] = useState(false);
+  const handleCloseUl = bool => {
+    setCloseUl(bool);
+  };
   return (
     <React.Fragment>
-      <Toolbar />
-      <SideDrawer />
-      <main>
+      <div onClick={() => handleCloseUl(false)}>
+        <Toolbar />
+        <SideDrawer />
+      </div>
+      <div onClick={() => handleCloseUl(true)}>
+        <Filter close={closeUl} />
+      </div>
+      <main onClick={() => handleCloseUl(false)}>
         {props.children}
         <div
           style={{
@@ -23,4 +33,4 @@ const layout = props => {
     </React.Fragment>
   );
 };
-export default layout;
+export default Layout;

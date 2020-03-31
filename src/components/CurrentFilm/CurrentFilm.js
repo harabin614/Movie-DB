@@ -12,6 +12,12 @@ const CurrentFilm = props => {
 
   const [youtubeTrailer, setYoutubeTrailer] = useState("");
   const [recommFilms, setRecommFilms] = useState([]);
+
+  useEffect(() => {
+    console.log("pes");
+    window.scrollTo(0, 0);
+  }, [film]);
+
   useEffect(() => {
     if (film) {
       const searchFilm = film.original_title + "+trailer";
@@ -30,7 +36,7 @@ const CurrentFilm = props => {
         .get(
           `movie/${film.id}/recommendations?api_key=8317a8165995bba8acb46fcbe40dfd45&language=en-US&page=1`
         )
-        .then(res => setRecommFilms(res.data.results.slice(0, 4)));
+        .then(res => setRecommFilms(res.data.results));
     }
   }, [film]);
 
@@ -41,14 +47,9 @@ const CurrentFilm = props => {
   let Film = null;
   let detailFilm = null;
   if (film && genres) {
+    console.log(film);
     posterImgUrl = "https://image.tmdb.org/t/p/original/" + film.poster_path;
-    film.genre_ids.forEach(genreId =>
-      genres.forEach(genre => {
-        if (genre.id === genreId) {
-          usedGenres.push(genre.name);
-        }
-      })
-    );
+    film.genres.map(genre => usedGenres.push(genre.name));
     Film = (
       <React.Fragment>
         <div className={classes.firstPart}>

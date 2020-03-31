@@ -1,0 +1,10 @@
+.Stars {
+  position: absolute;
+  width: auto;
+  top: 25%;
+  left: -10rem;
+  z-index: 2000;
+}
+.Stars i {
+  font-size: 1.3rem;
+}

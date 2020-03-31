@@ -5,13 +5,13 @@
 }
 
 .ToolBar a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bolder;
   font-size: larger;
 }
 
-@media screen and (min-width: 490px) {
+@media screen and (min-width: 900px) {
   .ToolBar {
     display: block;
   }

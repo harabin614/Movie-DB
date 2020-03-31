@@ -15,13 +15,18 @@ const SideDrawer = () => {
   const [openSideDrawer, setSD] = useState(false);
   const [selected, setSelected] = useState();
   const actualPath = useHistory();
+
   useEffect(() => {
     if (actualPath.location.pathname.includes("popular")) {
       setSelected(1);
-    } else {
+    } else if (actualPath.location.pathname === "/favorites") {
+      setSelected(2);
+    } else if (actualPath.location.pathname === "/watchlist") {
+      setSelected(3);
+    } else if (actualPath.location.pathname === "/") {
       setSelected(0);
     }
-  }, [actualPath]);
+  }, [openSideDrawer, actualPath.location.pathname]);
 
   const toggleDrawer = (what, index) => {
     setSD(what);

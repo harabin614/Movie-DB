@@ -1,21 +1,39 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import FilmBlock from "../../components/UserInterface/FilmBlock/FilmBlock";
 import * as actions from "../../store/actions/index";
+import { useHistory } from "react-router-dom";
+import classes from "./Watchlist.module.css";
 
 const Watchlist = () => {
-  const watchlist = useSelector(state => state.favorites.watchList);
+  const films = useSelector(state => state.favorites.films);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(actions.initWatchlist());
-  }, [dispatch]);
+  const actualPath = useHistory();
+
+  const goFilmDetail = movieId => {
+    dispatch(actions.getFilm(movieId));
+    actualPath.push("/");
+  };
+
   let displayWatchlist = null;
-  if (watchlist) {
-    displayWatchlist = watchlist.map(film => (
-      <p key={film.filmId}>{film.filmName}</p>
+  if (films) {
+    displayWatchlist = films.watchlist.map(film => (
+      <FilmBlock
+        clicked={goFilmDetail}
+        key={film.id}
+        title={film.filmTitle}
+        id={film.filmId}
+        backdrop={film.backdrop}
+      ></FilmBlock>
     ));
   }
 
-  return <div>{displayWatchlist}</div>;
+  return (
+    <div className={classes.WatchlistWrapper}>
+      <h2>Watchlist</h2>
+      {displayWatchlist}
+    </div>
+  );
 };
 
 export default Watchlist;

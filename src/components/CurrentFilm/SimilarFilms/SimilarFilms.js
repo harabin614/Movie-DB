@@ -3,11 +3,16 @@ import WindowFilm from "../../WindowFilm/WindowFilm";
 import classes from "./SimilarFilms.module.css";
 
 const similarFilms = props => {
-  let left = -25;
+  let left = -50;
   const recommFilms = props.recomm.map(recFilm => {
-    left += 25;
+    left += 50;
     return (
-      <WindowFilm left={left} film={recFilm} key={recFilm.id}></WindowFilm>
+      <WindowFilm
+        left={left}
+        film={recFilm}
+        key={recFilm.id}
+        id={recFilm.id}
+      ></WindowFilm>
     );
   });
   return (

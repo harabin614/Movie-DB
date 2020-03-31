@@ -3,14 +3,18 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 // import FilmDetail from "./container/FilmDetail";
 import Layout from "./hoc/Layout/Layout";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, useHistory } from "react-router-dom";
 import * as actions from "./store/actions/index";
+import Map from "./components/UserInterface/GoogleMap/Map";
 
 const App = () => {
   const dispatch = useDispatch();
+  const actualPath = useHistory();
   useEffect(() => {
+    dispatch(actions.initFilm());
     dispatch(actions.initGenres());
-  }, [dispatch]);
+    dispatch(actions.getFilmOptionsData());
+  }, [dispatch, actualPath]);
   console.log("app render");
   const FilmDetail = React.lazy(() => {
     return import("./container/FilmDetail/FilmDetail");
@@ -24,9 +28,11 @@ const App = () => {
   const Favorites = React.lazy(() => {
     return import("./container/Favorites/Favorites");
   });
+
   let routes = (
     <Switch>
       <Route path="/popular" component={PopularFilms} />
+      <Route path="/map" component={Map} />
       <Route path="/watchlist" component={Watchlist} />
       <Route path="/favorites" component={Favorites} />
       <Route path="/" exact component={FilmDetail} />
